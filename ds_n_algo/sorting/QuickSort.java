@@ -1,7 +1,7 @@
 package ds_n_algo.sorting;
 
 /*
- * O(nlogn)
+ * Worst_case - O(n^2), Bese_case - O(nlogn)
  * @since 02/08/2020
  * Merge Sort vs Quick sort (Advantage/Disadvantage).
  * When to use what (GFG or any other place)
