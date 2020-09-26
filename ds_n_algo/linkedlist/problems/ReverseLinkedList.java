@@ -35,8 +35,7 @@ public class ReverseLinkedList {
 			head = currNext;
 		}  
 		
-		head = prevNode; //IMP: At the end head=null and prevNode is the new head.
-		return head;
+		return prevNode; //IMP: At the end head=null and prevNode is the new head.
 	}
 	
 	static ListNode newHead = null;

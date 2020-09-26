@@ -16,6 +16,6 @@ public class ListNode {
 
 	@Override
 	public String toString() {
-		return "ListNode [data=" + data + ", next=" + next + "]";
+		return "[data="+ data +", next=" + next + "]";
 	}
 }

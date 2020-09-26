@@ -39,4 +39,6 @@ class ProxyClass extends ConcreteClass {
  * 					Proxy_Class
  * 			
  * 	Client.Proxy();
+ * 
+ * Reallife example : Spring AOP
  */

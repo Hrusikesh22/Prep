@@ -1,9 +1,9 @@
 package ds_n_algo.tree;
 
 public class BTNode {
-	private int data;
-	private BTNode left;
-	private BTNode right;
+	public int data;
+	public BTNode left;
+	public BTNode right;
 
 	public BTNode(int data) {
 		this.data = data;// left & right is null at this point.

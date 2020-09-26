@@ -64,3 +64,57 @@ public class Islands {
 		return (i>=0 && j>=0) && (i<=matrixSize-1 && j<=matrixSize-1);
 	}
 }
+
+/**
+ 
+ public class main {
+    public static void main(String[] str) {
+        
+        int[][] arr = {
+                        {1,1,0,1,0},
+                        {1,0,0,0,1},
+                        {0,0,0,1,1},
+                        {1,0,1,0,1},
+                        {1,0,0,1,1}
+                      }; 
+        for(int i=0; i<5; i++){
+            for(int j=0; j<5; j++ ){
+                if(arr[x][y] != 2) {//If Not visited
+                    checkIceland(arr, i, j);
+                }
+            }
+            
+        }
+        
+        System.out.println("Biggest Iceland size : " + maxIcelandSize);
+        
+    }
+    
+    static int maxIcelandSize = 0
+    static int currIcelandSize = 0;
+    static void checkIceland(int[][] arr, int x, int y) {
+        
+        if(x>=0 && x<=4 && y>=0 && y<=4) {
+            
+            if(arr[x][y] == 1 && arr[x][y] != 2) {
+                
+                ++currIcelandSize;
+                
+                arr[x][y] = 2; //Mark Visited
+                
+            
+                return checkIceland(x-1, y);//top
+                return checkIceland(x+1, y);//Bottom
+                return checkIceland(x, y-1);//Left
+                return checkIceland(x, y+1);//Right
+                
+                Math.max(maxIcelandSize, currIcelandSize);
+                currIcelandSize = 0;
+            } 
+        }
+        
+    }
+    
+}
+  
+ */

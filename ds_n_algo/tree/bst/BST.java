@@ -21,7 +21,7 @@ public class BST {
 	 */
 	public static BTNode insert(BTNode root, int data) {
 		
-		if(root == null) {//Invalid tree
+		if(root == null) {
 			root = new BTNode(data);
 			return root;
 		}
@@ -51,12 +51,22 @@ public class BST {
 		if(root == null)
 			return null;
 		
-		if(root.getData() == data) {//Match Found
+		if(root.getData() < data) {
+			BTNode deletedNode = delete(root.getRight(), data);
+			root.setRight(deletedNode);
+		} 
+		else if(root.getData() > data) {
+			BTNode deletedNode = delete(root.getLeft(), data);			//after delete, deleted node will be null and same will be recieved here.  
+			root.setLeft(deletedNode); 									//Assign deleted node or null to it's parent.
+		} 
+		else if(root.getData() == data) {//Match Found
 			
 			if(TreeUtils.hasTwoChildren(root)) {
 				BTNode IOPredecessor = getInOrderPredecessor(root.getLeft());
-				root.setData(IOPredecessor.getData());							// Copy InOrderPredecessor node value to the matching node to be deleted.
-				root.setLeft(delete(root.getLeft(), IOPredecessor.getData()));	//Now delete InOrderPredecessor node.
+				root.setData(IOPredecessor.getData());							//Copy InOrderPredecessor node value to the matching node to be deleted.
+				
+				BTNode deletedNode = delete(root.getLeft(), IOPredecessor.getData());
+				root.setLeft(deletedNode);	
 			} 
 			else if(TreeUtils.hasOneChild(root)) {
 				root = TreeUtils.getOneChild_LeftOrRight(root);
@@ -64,12 +74,6 @@ public class BST {
 			else if(TreeUtils.isLeaf(root)) {
 				root = null;
 			}
-		}
-		else if(root.getData() < data) {
-			root.setRight(delete(root.getRight(), data));
-		} 
-		else if(root.getData() > data) {
-			root.setLeft(delete(root.getLeft(), data));
 		}
 		
 		return root;

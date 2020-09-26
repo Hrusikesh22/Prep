@@ -5,7 +5,11 @@ import ds_n_algo.tree.BTPrinter;
 import ds_n_algo.tree.utils.TreeUtils;
 
 /**
- * Depth~Height of tree [O(n)]
+ * Depth~Height of tree - O(n)
+ * 
+ * Height of tree : Max(R.Left, R.Right)+1
+ * Likewise Minimum Height of tree : Min(R.Left, R.Right)+1
+ * 
  * @since 18/08/20
  */
 public class HeightOfTree {
@@ -16,20 +20,19 @@ public class HeightOfTree {
 		root.getLeft().setLeft(new BTNode(4));
 		root.getLeft().setRight(new BTNode(5));
 		root.getLeft().getRight().setLeft(new BTNode(6));
-		
+
 		TreeUtils.print("I/P : Binary Tree");
 		BTPrinter.printTree(root);
 		
-		TreeUtils.print("Height : " + height(root));
+		TreeUtils.print("O/P : Height of Tree - " + height(root));
 	}
 	
 	public static int height(BTNode root ) {
-		if(root == null) return 0;
 		
-		int leftH = height(root.getLeft());
-		int rightH = height(root.getRight());
+		if(root == null) 
+			return 0;
 		
-		return Math.max(leftH, rightH) + 1;
+		return Math.max( height(root.left), height(root.right) ) + 1;
 	}
 }
 
