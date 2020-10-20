@@ -52,6 +52,9 @@ class PotionFactory {
 
 		Potion potion = potions.get(type);//Check in store first.
 		
+		/*
+		 * IMP: Get from cache, create otherwise and add to cache.
+		 */
 		if (potion == null) {
 			switch (type) {
 			case HEALING:

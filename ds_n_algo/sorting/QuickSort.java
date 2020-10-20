@@ -19,10 +19,11 @@ public class QuickSort {
 	
 	static void partitionAndSort(int[] A, int start, int end) {
 		
-		Utils.printMsg("Pass-"+ ++pass+" :: start="+start+", end="+end);
+		Utils.printMsg("Pass-"+ ++pass+" :: start_index@"+start+", end_index@"+end);
 		
 		int pivot = end; 						//Last Element
-		int curr = start, i = start;
+		int curr = start;
+		int i = start;
 		
 		if( !(start<end) ) 						//IMP :: When called with only element in list/array
 			return;
@@ -37,7 +38,7 @@ public class QuickSort {
 		}
 		Utils.swap(A, i, pivot);
 		
-		Utils.printArray(A, pass, "(Pivot="+pivot+", i="+i+")");
+		Utils.printArray(A, pass, "(Swap : Pivot_index@"+pivot+" & index="+i+")");
 		
 		partitionAndSort(A, start, i-1);
 		partitionAndSort(A, i+1, end);

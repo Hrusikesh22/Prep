@@ -55,7 +55,8 @@ class DecoratedCircle extends A_Decorator {
 		shape.draw();
 		System.out.println("Decorated ...");
 		System.out.println("-------------");
-		//Here or before draw functionality we can add any new Behavior/function.
+		//Before or after draw functionality we can add any new Behavior/function.
+		//Or we can add new methods to DecoratedCircle altogether i.e. Adding new behavior to decorated object altogether.
 	}
 }
 

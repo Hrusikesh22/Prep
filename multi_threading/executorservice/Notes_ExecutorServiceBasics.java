@@ -1,6 +1,6 @@
 package multi_threading.executorservice;
 
-public class ExecutorServiceBasics {
+public class Notes_ExecutorServiceBasics {
 
 	/**
 	 *  ExecutorService exService = new ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime, unit, Unbounded_workQueue)
@@ -13,9 +13,8 @@ public class ExecutorServiceBasics {
 	 * 				  will remain alive/wait till this much time for new task to arrive in Q else shut them down. 
 	 * unit			: TimeUnit.MILLISECONDS
 	 * 		
-	 * 		service.execute(Runnable)
-	 * 		service.submit(Runnable) 
-	 * 		service.submit(Callable) 
+	 * 		service.execute(Runnable) - Return type is void.
+	 * 		service.submit(Runnable/Callable) - Return type is Future<T>
 	 * 		service.submit(Callable, returnResultType) 
 	 * 		service.invokeAll(Callable-List) 
 	 */
@@ -32,6 +31,8 @@ public class ExecutorServiceBasics {
 	 * Wait for the task to finish executing, with "get".
 	 * The Future interface is more useful if you submit a Callable to the pool. The return value of the call method will be returned when you call "Future.get". 
 	 * If you don't maintain a reference to the Future, there is no difference.
+	 * 
+	 * 
 	 */
 	
 	/**

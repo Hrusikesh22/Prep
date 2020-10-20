@@ -13,13 +13,14 @@ public class BubbleSort {
 
 			Utils.printArray(A, ++pass, "before");
 			
-			for(int j = 0; j < A.length-i-1; j++) {
+			for(int j = 0; j < A.length-i-1; j++) { //A.length-1 will also work, but better to use A.length-i-1
+				
 				if(A[j]> A[j+1]) {
 					Utils.swap(A, j, j+1);
 				}
 			}
 			
-			Utils.printArray(A, pass, "before");
+			Utils.printArray(A, pass, "after");
 		}
 	}
 

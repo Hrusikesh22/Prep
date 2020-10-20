@@ -1,4 +1,4 @@
-package utilities;
+package ds_n_algo.sorting.misc;
 
 public class LexicalSort {
 

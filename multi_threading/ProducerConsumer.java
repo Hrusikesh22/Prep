@@ -6,10 +6,11 @@ import java.util.Queue;
 public class ProducerConsumer {
 	public static void main(String[] s) {
 		/*
-		 * Common link between P n C.
-		 * Also both P n C will have lock on this Q and will call wait()/notifyAll() 
+		 * 1- Common link between P n C.
+		 * 2- Also both P n C will have lock on this Q and will call wait()/notifyAll() 
+		 * 3- Queues are unbounded. so take QUEUE_CAPACITY to check in Producer for q.isFull() 
 		 */
-		Queue<Integer> q = new LinkedList<>();
+		Queue<Integer> q = new LinkedList<>();//IMP
 		
 		new Thread(new Producer(q)).start();
 		new Thread(new Consumer(q)).start();
@@ -19,7 +20,7 @@ public class ProducerConsumer {
 class Producer implements Runnable {
 
 	private Queue<Integer> q;
-	private final int QUEUE_CAPACITY = 5;
+	private final int QUEUE_CAPACITY = 5; //IMP
 	
 	Producer(Queue<Integer> q){
 		this.q = q;
@@ -66,12 +67,12 @@ class Consumer implements Runnable {
 	public void run() {
 		while(true) {
 			try {
-				consumer();
+				consume();
 			} catch (InterruptedException e) { e.printStackTrace(); }
 		}
 	}
 	
-	public void consumer() throws InterruptedException {
+	public void consume() throws InterruptedException {
 		
 		synchronized (q) {
 			

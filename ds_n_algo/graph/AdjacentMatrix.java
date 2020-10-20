@@ -4,18 +4,18 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class AdjacentMatrix {
+public class AdjacentMatrix implements Graph{
 
 	public static void main(String[] args) {
 		
-		Graph graph = new AdjacentMatrixGraph();
+		Graph graph = new AdjacentMatrix();
 		
 		graph.addVertex('A'); graph.addVertex('B');
 		graph.addVertex('C'); graph.addVertex('D');
 		
-		graph.addEdge(0, 1); //graph.addEdge(1, 0); Not required. 
-		graph.addEdge(0, 3); //graph.addEdge(2, 0); Not required.
-		graph.addEdge(1, 2); //graph.addEdge(2, 1); Not required.
+		graph.addEdge(0, 1); //graph.addEdge(1, 0); //Not required for undirected. 
+		graph.addEdge(0, 3); //graph.addEdge(3, 0); //Not required for undirected.
+		graph.addEdge(1, 2); //graph.addEdge(2, 1); //Not required for undirected.
 		graph.addEdge(3, 2);
 		
 		//graph.removeEdge(1, 1);
@@ -28,18 +28,15 @@ public class AdjacentMatrix {
 		System.out.println("\n\n--------- BFS ---------");
 		graph.bfs();
 	}
-}
 
-//Assumption : Undirected graph
+	//Assumption : Undirected graph
 
-class AdjacentMatrixGraph implements Graph {
-	
 	private int MAX_VERTICES = 4;//change as required.
 	private int vCount = 0;
 	private int[][] todArr;
 	private Vertex[] vertices;
 	
-	public AdjacentMatrixGraph() {
+	public AdjacentMatrix() {
 		todArr = new int[MAX_VERTICES][MAX_VERTICES]; 
 		vertices = new Vertex[MAX_VERTICES];
 	}

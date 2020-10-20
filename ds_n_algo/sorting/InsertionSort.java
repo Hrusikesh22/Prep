@@ -17,17 +17,17 @@ public class InsertionSort {
 		
 		for(int i = 1; i <= A.length-1; i++) {
 
-			Utils.printArray(A, i, "(Marker-" + A[i] + ")");
+			Utils.printArray(A, i, "(Curr - " + A[i] + ")");
 			
-			int marker = A[i];
+			int curr = A[i];
 			
 			int j = i;
-			while(j > 0 && A[j-1] > marker) {
+			while(j > 0 && A[j-1] > curr) {
 				A[j] = A[j-1];
 				--j; 	//Till previous greater check and decrement j
 			}
 			
-			A[j]= marker;
+			A[j]= curr;
 			
 			Utils.printArray(A, i, "After");
 		}
@@ -37,6 +37,8 @@ public class InsertionSort {
 /*
  * In below approach of 2 for-loops, we are swapping every time, that is not required.
  * Rather keep marked value as temp and keep comparing, swap at the end of inner loop.
+ * But quite simple to understand and implement this way.
+ * 
  * for(int i = 1; i <= A.length-1; i++) {
 			for(int j = i; j > 0; j--) {
 				if(A[j-1]>A[j]) {

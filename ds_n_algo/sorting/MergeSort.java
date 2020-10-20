@@ -41,10 +41,10 @@ public class MergeSort {
 		int tempArrInx = 0;
 
 		while(start1 <= end1 && start2 <= end2) {
-			if(A[start1] > A[start2]) {
-				tempArr[tempArrInx++] = A[start2++]; 		// Both the array indices post assignment auto incremented.
+			if(A[start1] < A[start2]) {
+				tempArr[tempArrInx++] = A[start1++]; 		// Both the array indices post assignment auto incremented.
 			} else {										//Assuming original array with distinct elements. 
-				tempArr[tempArrInx++] = A[start1++];
+				tempArr[tempArrInx++] = A[start2++];
 			}
 		}
 
