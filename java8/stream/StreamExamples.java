@@ -24,9 +24,9 @@ public class StreamExamples {
 	
 	static void ways2CreateStreamAndOperate(Employee[] arrayOfEmps) {
 
-		Stream<Employee> empStream = Stream.of(arrayOfEmps);//1
-		empStream = Arrays.asList(arrayOfEmps).stream();//2
-		empStream = Stream.of(arrayOfEmps[0], arrayOfEmps[1], arrayOfEmps[2]);//3
+		Stream<Employee> empStream = Stream.of(arrayOfEmps);							//1
+		empStream = Stream.of(arrayOfEmps[0], arrayOfEmps[1], arrayOfEmps[2]);			//2
+		empStream = Arrays.asList(arrayOfEmps).stream();								//3
 		
 		Stream.Builder<Employee> streamBldr = Stream.builder();
 		streamBldr.accept(arrayOfEmps[0]);
@@ -36,12 +36,12 @@ public class StreamExamples {
 		empStream = streamBldr.build();
 		
 		/** stream.forEach : It's a terminating operation **/
-		empStream.forEach(emp -> System.out.println(emp));			//1
+		empStream.forEach(emp -> System.out.println(emp));				//1
 		empStream.forEach(System.out::println);							//2
 		
 		/** stream.collect, stream.map **/
-		List<Employee> empList = empStream.collect(Collectors.toList());//1
-		empList = empStream.map(EmployeeRepo :: findById).collect(Collectors.toList());//2
+		List<Employee> empList = empStream.collect(Collectors.toList());						//1
+		empList = empStream.map(EmployeeRepo :: findById).collect(Collectors.toList());			//2
 		
 		/** stream.filter **/
 		empList = empStream.map(EmployeeRepo :: findById)

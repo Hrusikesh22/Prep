@@ -38,7 +38,7 @@ public class ReverseStackUsingStackOperations {
 	
 	static void insertAtBottom(Stack<Integer> stack, int item) {
 
-		Integer temp = null;
+		/*Integer temp = null;
 		if(!stack.isEmpty())
 			temp = stack.pop();
 		
@@ -49,7 +49,16 @@ public class ReverseStackUsingStackOperations {
 		}
 		
 		if(temp !=null)
-			stack.push(temp);
+			stack.push(temp);*/
+		
+		if(stack.isEmpty()) {
+			stack.push(item);
+			return;
+		}
+		
+		int top = stack.pop();
+		insertAtBottom(stack, item);
+		stack.push(top);
 		
 	}
 }
