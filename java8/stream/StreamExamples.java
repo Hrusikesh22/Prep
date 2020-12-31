@@ -87,6 +87,7 @@ public class StreamExamples {
 	    empStream.map(Employee::getName).collect(Collectors.toCollection(ArrayList::new));//toCollection
 	    empStream.collect(Collectors.partitioningBy(emp -> emp.getSal()>10000));//partitioningBy - returns map of 2 partitions.
 	    Map<Long, List<Employee>> EmployeesBySal = empStream.collect(Collectors.groupingBy(emp->emp.sal));//groupingBy
+	    Map<String, Employee> empListToMap = empStream.collect(Collectors.toMap(Employee::getName, emp -> emp));//toMap : list to Map
 		
 	}
 }
